@@ -33,14 +33,17 @@ class PlayerController extends AbstractController
         ]);
     }
 
-    public function getPlayerInfo(): array
+    public function getRemotePlayerMatchListByUsername(string $username): Response
     {
-        $response = $this->client->request(
+        $request = $this->client->request(
             'GET',
-            'http://51.255.160.47:8181/euw1/passerelle/getHistoryMatchList/azerty'
+            'http://51.255.160.47:8181/euw1/passerelle/getHistoryMatchList/'.$username
         );
 
-        return $response->toArray();
+        $response = new Response();
+        $response->setContent($request);
+
+        return $response;
     }
 
 
