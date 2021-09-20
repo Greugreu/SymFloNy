@@ -16,7 +16,7 @@ class AlgoController extends AbstractController
     {
 
         return $this->render('algo/index.html.twig', [
-            'result' => json_encode($this->bubble([55, 2, 8])),
+            'result' => json_encode($this->bubble([55, 2, [5, 3, 1, [9, 8, 7]] , 8])),
             'controller_name' => 'AlgoController',
         ]);
     }
@@ -36,18 +36,25 @@ class AlgoController extends AbstractController
         $isSwap = true;
         while($isSwap === true) {
             $isSwap = false;
-            $length = count($arr);
-            for ($i = 0; $i < $length - 1; $i++)
+            for ($i = 0; $i < count($arr) - 1; $i++)
             {
-                if ($arr[$i] > $arr[$i + 1])
-                {
-                    $temp = $arr[$i];
-                    $arr[$i] = $arr[$i + 1];
-                    $arr[$i + 1 ] = $temp;
-                    $isSwap = true;
-                }
+               if (!is_array($arr[$i]))
+               {
+                   $tempArr = $arr[$i];
+                   if ($tempArr[$i] > $tempArr[$i + 1])
+                   {
+                       $temp = $tempArr[$i];
+                       $tempArr[$i] = $tempArr[$i + 1];
+                       $tempArr[$i + 1 ] = $temp;
+                       $isSwap = true;
+                       $arr[$i] = $tempArr;
+                   }
+               } else {
+                   $this->bubble($arr[$i]);
+               }
             }
         }
         return $arr;
     }
+
 }
