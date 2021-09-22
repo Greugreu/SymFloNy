@@ -1,4 +1,4 @@
-# SymFlony
+# SymFloNy
 
 > Symfony API & Algorithm exercices
 
