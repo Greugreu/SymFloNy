@@ -26,8 +26,6 @@ class DatadragonController extends AbstractController
                         'description' => $item['plaintext'],
                         'gold' => $item['gold']
                     ];
-
-                        //[$arr['name'] => $item['name'], $arr["description"] => $item['plaintext'], $item['gold'] => $item['gold']];
             }
         }
 
