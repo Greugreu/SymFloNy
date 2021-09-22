@@ -24,4 +24,4 @@ In order to be able to run the application on your workstation, you must install
 4. `$ php bin/console server:start`
 
 
-For detailed explanation on how things work, check out [Synfony Docs](https://symfony.com/doc/4.4//index.html).
+For detailed explanation on how things work, check out [Symfony Docs](https://symfony.com/doc/4.4//index.html).
