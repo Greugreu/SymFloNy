@@ -1,0 +1,7 @@
+{% for item in result %}
+      <h2>{{ item.name }}</h2>
+      <p>{{ item.description }}</p>
+      <p>
+           <span>Prix de base : {{ item.gold.base }}</span>, Prix total: {{ item.gold.total }}, Prix de revente {{ item.gold.sell }}
+      </p>
+{% endfor %}

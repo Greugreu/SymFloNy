@@ -34,14 +34,17 @@ class AlgoController extends AbstractController
     protected function bubble(array $arr): array
     {
         $isSwap = true;
+        $newArr = [];
         while($isSwap === true) {
             $isSwap = false;
             for ($i = 0; $i < count($arr) - 1; $i++)
             {
-               if (!is_array($arr[$i]))
+               if (is_array($arr[$i]))
                {
-                   $tempArr = $arr[$i];
-                   if ($tempArr[$i] > $tempArr[$i + 1])
+                   $this->bubble($arr[$i]);
+               } else {
+                   $tempArr = [];
+                   if ($arr[$i] > $arr[$i + 1])
                    {
                        $temp = $tempArr[$i];
                        $tempArr[$i] = $tempArr[$i + 1];
@@ -49,8 +52,6 @@ class AlgoController extends AbstractController
                        $isSwap = true;
                        $arr[$i] = $tempArr;
                    }
-               } else {
-                   $this->bubble($arr[$i]);
                }
             }
         }
