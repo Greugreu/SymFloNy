@@ -34,4 +34,12 @@ class DatadragonController extends AbstractController
             'controller_name' => 'DatadragonController',
         ]);
     }
+
+    /**
+     * @Route("/DataDMaxItemPrice", name="DataDMaxItemPrice")
+     */
+    public function maxItemPrice()
+    {
+
+    }
 }
